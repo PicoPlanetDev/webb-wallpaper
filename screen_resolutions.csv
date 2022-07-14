@@ -1,10 +1,17 @@
 Samsung Galaxy S22 Ultra,s22 ultra,3200,1440
 Samsung Galaxy S22,s22,2400,1080
 Samsung Galaxy S21 Ultra 5G,s21 ultra,3200,1440
+Samsung Galaxy S21+ 5G,s21+,2400,1080
 Samsung Galaxy S21 5G,s21,2400,1080
+Samsung Galaxy S20 Ultra,s20 ultra,3200,1440
 Samsung Galaxy S20,s20,3200,1440
 Samsung Galaxy S10e,s10e,2280,1080
+Samsung Galaxy S10+,s10+,3040,1440
 Samsung Galaxy S10,s10,3040,1440
+Samsung Galaxy S9+,s9+,2960,1440
+Samsung Galaxy S9,s9,2960,1440
+Samsung Galaxy S8,s8,2960,1440
+Samsung Galaxy S8+,s8+,2960,1440
 Samsung Galaxy Note 20,note 20,2400,1080
 Samsung Galaxy Note 20 Ultra,note 20 ultra,3088,1440
 Samsung Galaxy Note 10,note 10,2280,1080
@@ -25,6 +32,8 @@ Apple iPhone XR,xr,1792,828
 Apple iPhone XS Max,xs max,2688,1242
 Apple iPhone XS,xs,2436,1125
 Apple iPhone X,x,2436,1125
+Apple iPhone 8 Plus,8 plus,1920,1080
+Apple iPhone 8,8,1334,750
 Google Pixel 6 Pro,pixel 6 pro,3120,1440
 Google Pixel 6,pixel 6,2400,1080
 Google Pixel 5,pixel 5,2340,1080
