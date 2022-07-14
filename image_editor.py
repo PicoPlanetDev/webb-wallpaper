@@ -1,5 +1,3 @@
-from PIL import Image
-
 class ImageResizer:
     def __init__(self, image, target_height, target_width=None) -> None:
         self.image = image
