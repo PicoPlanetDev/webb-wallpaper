@@ -4,6 +4,16 @@ from image_downloader import ImageDownloader
 from image_editor import ImageResizer
 from csv_reader import CSVReader
 from PIL import Image
+import os
+from pathlib import Path
+
+def create_folders():
+    folders = [Path('images','fullsize'),Path('images','wallpapers'),Path('static','banner')]
+    for folder in folders:
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+
+create_folders()
 
 app = Flask(__name__)
 downloader = ImageDownloader()
