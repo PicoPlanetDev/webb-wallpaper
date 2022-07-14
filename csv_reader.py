@@ -22,7 +22,7 @@ class CSVReader:
 
     def get_phone_resolution(self, display_name) -> tuple:
         index = self.display_names.index(display_name)
-        return (int(self.heights[index]), int(self.widths[index]))
+        return (int(self.widths[index]), int(self.heights[index]))
 
     def get_display_names(self) -> list:
         return self.display_names
