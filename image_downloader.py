@@ -23,12 +23,15 @@ class ImageDownloader:
         banner_paths = []
         for gallery_img in self.gallery_imgs:
             img_url = gallery_img.get('src')
-            img = requests.get(img_url)
-            img_path = pathlib.Path('images', 'banner', img_url.split('/')[-1])
-            with open(img_path, 'wb') as f:
-                f.write(img.content)
-            # print(f'{img_path} downloaded')
-            banner_paths.append(img_path)
+            img_path = pathlib.Path('static', 'banner', img_url.split('/')[-1])
+            if img_path.exists():
+                banner_paths.append(img_path)
+            else:
+                img = requests.get(img_url)
+                with open(img_path, 'wb') as f:
+                    f.write(img.content)
+                # print(f'{img_path} downloaded')
+                banner_paths.append(img_path)
         return banner_paths
 
     def get_image_names(self) -> list:
@@ -50,6 +53,6 @@ class ImageDownloader:
             print(f'{image_path} downloaded')
             return image_path
 
-# if __name__ == '__main__':
-#     image_downloader = ImageDownloader()
-#     image_downloader.get_image('weic2205a')
+if __name__ == '__main__':
+    image_downloader = ImageDownloader()
+    image_downloader.get_image('weic2205a')
