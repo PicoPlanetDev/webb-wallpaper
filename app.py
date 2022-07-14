@@ -29,13 +29,11 @@ def index():
 @app.route('/get_image', methods=['POST'])
 def get_image():
     form = request.form
-    print(form['phone'], form['width'], form['height'], form['wide-image'], form['gallery-radio'])
     selected_image = None if form['gallery-radio'] == 'gallery' else form['gallery-radio']
-    
     phone = None if form['phone'] == '' else form['phone']
     width = None if form['width'] == '' else int(form['width'])
     height = None if form['width'] == '' else int(form['width'])
-    wide_image = True if form['wide-image'] == 'on' else False
+    wide_image = request.form.get('wide-image') == 'on'
     
     if phone is not None:
         target_width, target_height = reader.get_phone_resolution(phone)
