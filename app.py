@@ -1,6 +1,5 @@
-from io import BytesIO, StringIO
+from io import BytesIO
 from flask import Flask, render_template, request, send_file
-from sympy import true
 from image_downloader import ImageDownloader
 from image_editor import ImageResizer
 from csv_reader import CSVReader
