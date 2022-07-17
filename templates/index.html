@@ -27,10 +27,11 @@
                         {% for name, path in images %}
                         <div class="col text-truncate">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gallery-radio" id="form-{{ name }}"
+                                <input class="btn-check" type="radio" name="gallery-radio" id="form-{{ name }}"
                                     value="{{ name }}"></input>
-                                <label class="form-check-label" for="form-{{ name }}">{{ name }}
-                                    <img src="{{ path }}" width="100%">
+                                <label class="btn btn-outline-primary p-1" for="form-{{ name }}">
+                                    <!-- {{ name }} -->
+                                    <img src="{{ path }}" class="img-thumbnail" width="100%">
                                 </label>
                             </div>
                         </div>
