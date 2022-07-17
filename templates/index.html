@@ -21,11 +21,11 @@
             <p class="fs-5 col-md-8">
                 Create properly sized wallpapers from your favorite images captured by the James Webb Space Telescope.
             </p>
-            <div class="row g-5">
+            <div class="row">
                 <form role="form" action="get_image" method="post">
-                    <div class="row row-cols-4 border rounded mb-3 pt-2">
+                    <div class="row row-cols-4 border rounded pt-2">
                         {% for name, path in images %}
-                        <div class="col">
+                        <div class="col text-truncate">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gallery-radio" id="form-{{ name }}"
                                     value="{{ name }}"></input>
@@ -37,7 +37,7 @@
                         {% endfor %}
                     </div>
                     <div class="row mb-3">
-                        <div class="col border rounded pt-2">
+                        <div class="col-sm-4 g-3 border rounded py-2">
                             <label for="exampleDataList" class="form-label">Select your phone</label>
                             <input class="form-control" list="datalistOptions" id="exampleDataList"
                                 placeholder="Type to search..." name="phone">
@@ -47,7 +47,7 @@
                                     {% endfor %}
                             </datalist>
                         </div>
-                        <div class="col border rounded mx-3 pt-2">
+                        <div class="col-sm-4 g-3 border rounded py-2">
                             <p>Or type a custom size</p>
                             <p class="fw-lighter mb-3">Leave blank if you already selected your phone</p>
                             <div class="input-group mb-3">
@@ -57,7 +57,7 @@
                                 <input type="number" class="form-control" name="height" placeholder="1080">
                             </div>
                         </div>
-                        <div class="col border rounded pt-2">
+                        <div class="col-sm-4 g-3 border rounded py-2">
                             <div class="form-check form-switch">
                                 <input class="form-check-input" type="checkbox" role="switch"
                                     id="flexSwitchCheckDefault" name="wide-image">
