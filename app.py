@@ -41,7 +41,7 @@ def get_image():
     selected_image = None if form['gallery-radio'] == 'gallery' else form['gallery-radio']
     phone = None if form['phone'] == '' else form['phone']
     width = None if form['width'] == '' else int(form['width'])
-    height = None if form['width'] == '' else int(form['width'])
+    height = None if form['height'] == '' else int(form['height'])
     wide_image = request.form.get('wide-image') == 'on'
     
     if phone is not None:
