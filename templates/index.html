@@ -15,63 +15,63 @@
 </head>
 
 <body>
-    <div class="col-lg-8 mx-auto p-3 py-md-5">
+    <div class="col-lg-8 mx-auto p-3">
         <main>
             <h1>Webb Wallpaper</h1>
-            <p class="fs-5 col-md-8">
+            <p class="fs-5">
                 Create properly sized wallpapers from your favorite images captured by the James Webb Space Telescope.
             </p>
-            <div class="row">
-                <form role="form" action="get_image" method="post">
-                    <div class="row row-cols-4 border rounded pt-2">
-                        {% for name, path in images %}
-                        <div class="col text-truncate">
-                            <div class="form-check">
-                                <input class="btn-check" type="radio" name="gallery-radio" id="form-{{ name }}"
-                                    value="{{ name }}"></input>
-                                <label class="btn btn-outline-primary p-1" for="form-{{ name }}">
-                                    <!-- {{ name }} -->
-                                    <img src="{{ path }}" class="img-thumbnail" width="100%">
-                                </label>
-                            </div>
-                        </div>
-                        {% endfor %}
+            <form role="form" action="get_image" method="post">
+                <!-- Gallery image picker -->
+                <div class="row mb-3 px-1">
+                    {% for name, path in images %}
+                    <div class="col-sm-3 col-6 g-2">
+                        <input class="btn-check" type="radio" name="gallery-radio" id="form-{{ name }}"
+                            value="{{ name }}"></input>
+                        <label class="btn btn-outline-primary p-1" for="form-{{ name }}">
+                            <!-- {{ name }} -->
+                            <img src="{{ path }}" style="border-radius: 0.25rem;" width="100%">
+                        </label>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-sm-4 g-3 border rounded py-2">
-                            <label for="exampleDataList" class="form-label">Select your phone</label>
-                            <input class="form-control" list="datalistOptions" id="exampleDataList"
-                                placeholder="Type to search..." name="phone">
-                            <datalist id="datalistOptions">
-                                {% for name in display_names %}
-                                <option value="{{ name }}">
-                                    {% endfor %}
-                            </datalist>
-                        </div>
-                        <div class="col-sm-4 g-3 border rounded py-2">
-                            <p>Or type a custom size</p>
-                            <p class="fw-lighter mb-3">Leave blank if you already selected your phone</p>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Width</span>
-                                <input type="number" class="form-control" name="width" placeholder="1920">
-                                <span class="input-group-text">Height</span>
-                                <input type="number" class="form-control" name="height" placeholder="1080">
-                            </div>
-                        </div>
-                        <div class="col-sm-4 g-3 border rounded py-2">
-                            <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" role="switch"
-                                    id="flexSwitchCheckDefault" name="wide-image">
-                                <label class="form-check-label" for="flexSwitchCheckDefault">Make it wider for a
-                                    scrolling image on Android</label>
-                            </div>
+                    {% endfor %}
+                </div>
+                <!-- Options row -->
+                <div class="row mb-3">
+                    <!-- Phone picker -->
+                    <div class="col-sm-4">
+                        <label for="exampleDataList" class="form-label">Select your phone</label>
+                        <input class="form-control" list="datalistOptions" id="exampleDataList"
+                            placeholder="Type to search..." name="phone">
+                        <datalist id="datalistOptions">
+                            {% for name in display_names %}
+                            <option value="{{ name }}">
+                                {% endfor %}
+                        </datalist>
+                    </div>
+                    <!-- Resolution picker -->
+                    <div class="col-sm-4">
+                        <p>Or type a custom size</p>
+                        <p class="fw-lighter mb-3">Leave blank if you already selected your phone</p>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Width</span>
+                            <input type="number" class="form-control" name="width" placeholder="pixels">
+                            <span class="input-group-text">Height</span>
+                            <input type="number" class="form-control" name="height" placeholder="pixels">
                         </div>
                     </div>
-                    <div class="row">
-                        <button type="submit" class="btn btn-primary">Create Wallpaper</button>
+                    <!-- Other image settings -->
+                    <div class="col-sm-4">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+                                name="wide-image">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Make it wider for a
+                                scrolling image on Android</label>
+                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary">Create Wallpaper</button>
+            </form>
         </main>
     </div>
 </body>
