@@ -16,7 +16,12 @@ class ImageDownloader:
         self.img_names = self.get_image_names()
 
     def get_gallery_imgs(self) -> list:
-        gallery_imgs = self.soup.find_all('img', {'class': 'w-100'})
+        jg_entries = self.soup.find_all('div', {'class': 'jg_entry'})
+        # find all images in jg_entries
+        gallery_imgs = []
+        for jg_entry in jg_entries:
+            gallery_imgs.append(jg_entry.find('img'))
+        # gallery_imgs = self.soup.find_all('img', {'class': 'w-100'})
         return gallery_imgs
 
     def get_banners(self) -> list:
