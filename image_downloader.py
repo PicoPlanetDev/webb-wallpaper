@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import pathlib
 import os
 
-GALLERY_URL = 'https://esawebb.org/images/'
+GALLERY_URL = 'https://esawebb.org/images/archive/search/?minimum_size=0&ranking=0&instrument=3&instrument=2&instrument=1&instrument=5&instrument=4&facility=1&id=&release_id=&published_since_day=&published_since_month=&published_since_year=&published_until_day=&published_until_month=&published_until_year=&title=&subject_name=&description=&credit=&fov=0'
 FULLSIZE_URL = 'https://esawebb.org/media/archives/images/original/'
 
 class ImageDownloader:
@@ -16,13 +16,13 @@ class ImageDownloader:
         self.img_names = self.get_image_names()
 
     def get_gallery_imgs(self) -> list:
-        jg_entries = self.soup.find_all('div', {'class': 'jg_entry'})
-        # find all images in jg_entries
+        imgs = self.soup.find_all('img')
         gallery_imgs = []
-        for jg_entry in jg_entries:
-            gallery_imgs.append(jg_entry.find('img'))
-        # gallery_imgs = self.soup.find_all('img', {'class': 'w-100'})
+        for img in imgs:
+            if img['src'].startswith('https://cdn.esawebb.org/archives/images/screen/'):
+                gallery_imgs.append(img)
         return gallery_imgs
+
 
     def get_banners(self) -> list:
         banner_paths = []
@@ -60,4 +60,3 @@ class ImageDownloader:
 
 if __name__ == '__main__':
     image_downloader = ImageDownloader()
-    image_downloader.get_image('weic2205a')
