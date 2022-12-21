@@ -12,6 +12,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename= '/favicon/favicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename= '/favicon/favicon.png') }}">
 </head>
 
 <body>
@@ -22,19 +24,26 @@
                 Create properly sized wallpapers from your favorite images captured by the James Webb Space Telescope.
             </p>
             <form role="form" action="get_image" method="post">
-                <!-- Gallery image picker -->
-                <div class="row mb-3 px-1">
-                    {% for name, path in images %}
-                    <div class="col-sm-3 col-6 g-2">
-                        <input class="btn-check" type="radio" name="gallery-radio" id="form-{{ name }}"
-                            value="{{ name }}"></input>
-                        <label class="btn btn-outline-primary p-1" for="form-{{ name }}">
-                            <!-- {{ name }} -->
-                            <img src="{{ path }}" style="border-radius: 0.25rem;" width="100%">
-                        </label>
+                <button class="btn btn-outline-secondary mb-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseGallery" aria-expanded="false" aria-controls="collapseGallery">
+                    Expand/collapse gallery to select image
+                </button>
+                <div class="collapse" id="collapseGallery">
+                    <!-- Gallery image picker -->
+                    <div class="row mb-3 px-1">
+                        {% for name, path in images %}
+                        <div class="col-sm-3 col-6 g-2">
+                            <input class="btn-check" type="radio" name="gallery-radio" id="form-{{ name }}"
+                                value="{{ name }}"></input>
+                            <label class="btn btn-outline-primary p-1" for="form-{{ name }}">
+                                <!-- {{ name }} -->
+                                <img src="{{ path }}" style="border-radius: 0.25rem;" width="100%">
+                            </label>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
+
                 <!-- Options row -->
                 <div class="row mb-3">
                     <!-- Phone picker -->
