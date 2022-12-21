@@ -64,7 +64,7 @@ def get_image():
     image_io = BytesIO()
     resized.save(image_io, 'JPEG', quality=95)
     image_io.seek(0)
-    return send_file(image_io, mimetype='image/jpeg', as_attachment=True, attachment_filename=f'{selected_image}.jpg')
+    return send_file(image_io, mimetype='image/jpeg', as_attachment=True, download_name=f'{selected_image}.jpg')
 
 if __name__ == '__main__':
     Flask.run(app, debug=True, host='0.0.0.0', port=8080)
