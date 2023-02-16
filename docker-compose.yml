@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  webb-wallpaper:
+    build: .
+    ports:
+      - "8080:8080"
+    command: gunicorn --bind 0.0.0.0:8080 app:app
